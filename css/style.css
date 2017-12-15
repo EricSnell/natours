@@ -164,6 +164,32 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem;
+      z-index: 1; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem;
+      z-index: 2; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem;
+      z-index: 3; }
+    .composition__photo:hover {
+      transform: scale(1.5);
+      z-index: 5;
+      padding: 2rem;
+      border: 1rem solid #55c57a; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
