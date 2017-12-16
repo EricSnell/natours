@@ -72,6 +72,7 @@
     top: 12rem;
     right: 2rem;
     width: 75%; // force span to wrap
+    z-index: 100;
   }
 
   // Not nesting under __heading since it's not an element of the __heading, it's a new element
