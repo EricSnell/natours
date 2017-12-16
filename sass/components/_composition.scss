@@ -7,32 +7,36 @@
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
     border-radius: 2px;
     position: absolute;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    z-index: 5;
+    outline-offset: 2rem; // acts as a padding between the outline and the element its applied to
 
     &--p1 {
       left: 0;
       top: -2rem;
-      z-index: 1;
     }
 
     &--p2 {
       right: 0;
       top: 2rem;
-      z-index: 2;
     }
 
     &--p3 {
       left: 20%;
       top: 10rem;
-      z-index: 3;
     }
 
     &:hover {
-      transform: scale(1.5);
-      z-index: 5;
-      padding: 2rem;
-      border: 1rem solid $color-primary;
+      outline: 1.5rem solid $color-primary; // similar to a border
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 10;
     }
+
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
   }
 
 }
