@@ -1,13 +1,12 @@
 .card {
+  // FUNCTIONALITY
   perspective: 150rem; // the lower the value, the more dramatic the perspective. Choose a high number. Experiment
   -moz-perspective: 150rem;
   position: relative;
-  height: 50rem;
+  height: 52rem;
 
   &__side {
-    color: #fff;
-    font-size: 3rem;
-    height: 50rem;
+    height: 52rem; // have to set the height of each side since they collapse with an absolute position (must match card height)
     position: absolute;
     top: 0;
     left: 0;
@@ -15,6 +14,7 @@
     backface-visibility: hidden; // hides the back part of an element
     transition: all .8s ease;
     border-radius: 3px;
+    overflow: hidden; // stop card__picture from overflowing and losing top border radius
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &--front {
@@ -37,5 +37,73 @@
 
   &:hover &__side--back {
     transform: rotateY(0);
+  }
+
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; // multiple background blending effect
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), 
+                        url('../img/nat-5.jpg');
+    }
+
+    &--2 {
+      background-image: url('../img/nat-5.jpg');
+    }
+
+    &--3 {
+      background-image: url('../img/nat-5.jpg');
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; // force span to wrap
+  }
+
+  // Not nesting under __heading since it's not an element of the __heading, it's a new element
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; // treats the wrapped span as separate box elements (for our padding)
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, 
+                        rgba($color-secondary-light, 0.85), 
+                        rgba($color-secondary-dark, 0.85));
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
   }
 }
