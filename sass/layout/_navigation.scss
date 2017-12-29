@@ -127,4 +127,20 @@
   &__button:hover &__icon::after {
     top: 1rem;
   }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent; // we don't want to remove the element as it will remove the pseudo elements
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+
 }
