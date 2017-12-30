@@ -20,7 +20,7 @@
     display: table; // will function as a table to allow children elements displayed as table-cells to have same height
     overflow: hidden; // hide corners of images
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.5); // we need to include translate() again because a declaration can only have one transform property
+    transform: translate(-50%, -50%) scale(.25); // we need to include translate() again because a declaration can only have one transform property
     transition: all .4s .2s;
   }
   
