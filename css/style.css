@@ -1,3 +1,16 @@
+/*
+  0 - 600px:      Phone
+  600 - 900px:    Tablet portrait
+  900 - 1200px:   Tablet landscape
+  1200 - 1800px:  Normal (desktop) styles apply
+  1800px + :      Big desktop
+
+  ems and rems in media queries are not effected by a root font size
+  1em in the media query is always the default browser size (16px) or whatever user changes the default to,
+  no matter what we declare as a base font
+  rems fail to work as intended in some browsers, so ems are best option for media queries
+  1em = 16px
+*/
 /* Basic Reset */
 *,
 *:after,
@@ -8,6 +21,15 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
