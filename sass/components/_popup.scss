@@ -25,6 +25,7 @@
 
     @include respond(tab-port) {
       width: 85%;
+      text-align: center;
     }
   }
   
@@ -70,6 +71,15 @@
         position: relative;
         top: -7px;
       }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    @include respond(phone) {
+      display: block;
+      width: 100%;
     }
   }
   
@@ -119,4 +129,5 @@
       color: $color-primary;
     }
   }
+
 }
