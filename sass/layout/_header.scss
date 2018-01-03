@@ -1,7 +1,7 @@
 
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(
                 to right bottom, 
                 rgba($color-primary-light, 0.8), 
@@ -9,8 +9,14 @@
                 url('../img/hero-small.jpg');
   background-size: cover;
   background-position: top;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* specifies visibility of header */
+
+  
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* specifies visibility of header */
+    height: 95vh;
+  }
+
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -20,6 +26,7 @@
   // resolution targeting media query (load larger hero image on retina display excluding phone)
   // or show large hero when window is size of large hero
   @media (min-resolution: 192dpi) and (min-width: 37.5em), // 600/16 = 37.5
+         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // Safari support
          (min-width: 125em) { // 2000/16 = 125  
     background-image: linear-gradient(
                 to right bottom, 
