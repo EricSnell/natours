@@ -6,7 +6,7 @@
                 to right bottom, 
                 rgba($color-primary-light, 0.8), 
                 rgba($color-primary-dark, 0.8)), 
-                url('../img/hero.jpg');
+                url('../img/hero-small.jpg');
   background-size: cover;
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -16,6 +16,17 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   }
+  
+  // resolution targeting media query (load larger hero image on retina display excluding phone)
+  // or show large hero when window is size of large hero
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), // 600/16 = 37.5
+         (min-width: 125em) { // 2000/16 = 125  
+    background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-secondary-light, 0.8), 
+                rgba($color-secondary-dark, 0.8)), 
+                url('../img/hero.jpg');
+  } 
 
   &__logo-box {   // shorthand for header__logo-box
     position: absolute;
