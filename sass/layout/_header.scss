@@ -25,9 +25,9 @@
   
   // resolution targeting media query (load larger hero image on retina display excluding phone)
   // or show large hero when window is size of large hero
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), // 600/16 = 37.5
-         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // Safari support
-         (min-width: 125em) { // 2000/16 = 125  
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), // 600/16 = 37.5
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // Safari support
+         only screen and (min-width: 125em) { // 2000/16 = 125  
     background-image: linear-gradient(
                 to right bottom, 
                 rgba($color-primary-light, 0.8), 
